@@ -1,6 +1,7 @@
 package br.com.mariannesoares.servicex.servico.domain;
 
 import br.com.mariannesoares.servicex.categoria.domain.Categoria;
+import br.com.mariannesoares.servicex.ordemservico.domain.OrdemServico;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
