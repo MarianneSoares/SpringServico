@@ -2,6 +2,7 @@ package br.com.mariannesoares.servicex.categoria.domain;
 
 import br.com.mariannesoares.servicex.servico.domain.Servico;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
 
@@ -23,6 +24,7 @@ public class Categoria {
     public Categoria(){
 
     }
+
 
 
 }

@@ -31,10 +31,10 @@ public class Servico {
     @JoinColumn(name = "ID_CATEGORIA")
     private Categoria categoria;
 
-    @Column(name = "ORDEM_SERVICO")
-    @OneToMany(mappedBy = "servico")
+
+    @OneToMany(mappedBy = "idOrdemServico", cascade = CascadeType.ALL)
     private List<OrdemServico> ordemServicos;
 
 
     }
-}
+
