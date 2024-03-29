@@ -15,10 +15,11 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_CATEGORIA")
     private Long idCategoria;
+
     @Column(name= "NOME_CATEGORIA")
     private String nomeCategoria;
-    @Column(name="SERVICOS")
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "idServico", cascade = CascadeType.ALL)
     private List<Servico> servicos;
 
     public Categoria(){

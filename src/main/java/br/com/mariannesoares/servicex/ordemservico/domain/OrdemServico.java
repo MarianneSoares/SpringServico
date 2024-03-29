@@ -1,11 +1,17 @@
 package br.com.mariannesoares.servicex.ordemservico.domain;
 
+import br.com.mariannesoares.servicex.pagamento.domain.Pagamento;
 import br.com.mariannesoares.servicex.servico.domain.Servico;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.Set;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "ORDEMDESERVICO")
 public class OrdemServico {
@@ -13,15 +19,19 @@ public class OrdemServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "ID_ORDEM_SERVICO")
-    private Long idOrdemServico;
+    private Integer idOrdemServico;
 
-    @Column(name = "DATA")
-    private Date data;
+    @Column(name = "DATA_SOLICITACAO")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private Date dataSolicitacao;
 
     @Column(name = "VALOR_ORDEM_SERVICO")
     private Double valorOrdemServico;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_SERVICO")
-    private Servico servico;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "ordemServico")
+    private Pagamento pagamento;
+
+    @ManyToMany
+    @JoinTable(name = "SERVICO_OS", joinColumns = @JoinColumn(name = "ID_OS"), inverseJoinColumns = @JoinColumn(name = "ID_SERVICO"))
+    private Set<Servico> servico;
 }
