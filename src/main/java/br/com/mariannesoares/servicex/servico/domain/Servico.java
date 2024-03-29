@@ -27,7 +27,7 @@ public class Servico {
     @Column(name="VALOR_SERVICO")
     private Double valorServico;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "ID_CATEGORIA")
     private Categoria categoria;
 

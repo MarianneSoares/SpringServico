@@ -1,6 +1,7 @@
 package br.com.mariannesoares.servicex.categoria.domain;
 
 import br.com.mariannesoares.servicex.servico.domain.Servico;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,8 @@ public class Categoria {
     @Column(name= "NOME_CATEGORIA")
     private String nomeCategoria;
 
-    @OneToMany(mappedBy = "idServico", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "idServico")
     private List<Servico> servicos;
 
     public Categoria(){

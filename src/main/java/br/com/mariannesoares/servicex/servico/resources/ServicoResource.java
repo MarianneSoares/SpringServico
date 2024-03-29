@@ -22,7 +22,7 @@ public class ServicoResource {
     public ResponseEntity<Servico> criarServico(@RequestBody Servico servico){
 
         Servico novoServico = servicoService.criarServico(servico);
-        return new ResponseEntity<>(novoServico, HttpStatus.CREATED);
+        return new ResponseEntity<Servico>(novoServico, HttpStatus.CREATED);
 
     }
 

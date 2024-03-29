@@ -16,7 +16,9 @@ public class ServicoService {
     @Autowired
     private ServicoRepository servicoRepository;
 
-    public Servico criarServico(Servico servico){return servicoRepository.save(servico); }
+    public Servico criarServico(Servico servico){
+        return servicoRepository.save(servico);
+    }
 
     public List<Servico> listarServico(){ return servicoRepository.findAll(); }
 
